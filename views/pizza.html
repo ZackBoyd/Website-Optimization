@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
 <style>
@@ -9,6 +8,44 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -box-sizing: border-box;
+}
+#pizzaSize {
+  font-weight: 800;
+}
+
+.mover {
+  position: fixed;
+  width: 256px;
+  z-index: -1;
+}
+
+.randomPizzaContainer {
+  float: left;
+  display: flex;
+}
+
+.randomPizzaContainer:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+
+ .container {
+  background-color: rgba(240, 60, 60, 0.8);
+}
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+.randomPizzaContainer {
+  float: left;
+  display: flex;
 }
 </style>
 
@@ -103,9 +140,9 @@
           <div class="col-md-12">
             <em>What size pizza would you like? Use the slider below to change pizza sizes.</em>
           </div>
-          <div id="pizzaSize" class="col-md-6">Medium</div>
+          <div id="pizzaSize" class="col-md-6" style="font-weight: 800">Medium</div>
           <div class="col-md-12">
-            <input style ="background: grey; font-size: 18px;" id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>style ="background: grey; font-size: 18px;" 
+            <input style ="background: grey; font-size: 18px;" id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>
           </div>
         </div>
         <div id="randomPizzas" class="row">
