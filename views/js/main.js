@@ -511,7 +511,7 @@ function updatePositions() {
   var mostRecentScroll = document.body.scrollTop;
 //Array to store the output of phase loop
   var phaseArray = [];
-
+//Loop to fill phaseArray with 5 unique values
   for (var i = 0; i < 5; i++) {
     phaseArray.push(Math.sin((mostRecentScroll / 1250) + i));
   }
@@ -530,10 +530,22 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-}
+  animating = false;
+};
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
+
+//Animation frame function to remove issue with painting
+
+function requestAnimationFrameToScroll() {
+  if (!animating) {
+
+    requestAnimationFrame(updatePositions);
+  }
+
+  animating = true;
+}
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
