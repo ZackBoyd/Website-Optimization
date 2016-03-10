@@ -19,3 +19,4 @@ Steps taken to optimize site:
 3.) Rewrote for loops that resize pizzas and handle scrolling to remove unnecessary DOM queries and forced synchronous layouts
 4.) Replaced selector queries with getElementById() and getElementsByClassName() to speed up queries
 5.) Added async to js scripts 
+6.) Minified css
